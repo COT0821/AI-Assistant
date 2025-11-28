@@ -3,9 +3,9 @@ import google.generativeai as genai
 from PIL import Image
 
 # --- 1. 網頁基本設定 ---
-st.set_page_config(page_title="AI小管家", page_icon="🤖")
-st.title("🤖 AI小管家")
-st.write("強大的AI小管家，可以統整文字也可以圖片判別唷！")
+st.set_page_config(page_title="咖啡咖萬能助理", page_icon="🤖")
+st.title("咖啡咖萬能助理")
+st.write("可以統整文字也可以判別圖片唷！")
 
 # --- 2. 共用設定 (側邊欄) ---
 # API Key 只需要輸入一次，兩個功能都能用
