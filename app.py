@@ -3,15 +3,24 @@ import google.generativeai as genai
 from PIL import Image
 
 # --- 1. 網頁基本設定 ---
-st.set_page_config(page_title="AI 萬能助理", page_icon="🤖")
-st.title("🤖 AI 萬能助理")
-st.write("我是你的全能助手，可以幫你讀文章，也可以幫你看照片！")
+st.set_page_config(page_title="AI小管家", page_icon="🤖")
+st.title("🤖 AI小管家")
+st.write("強大的AI小管家，可以統整文字也可以圖片判別唷！")
 
 # --- 2. 共用設定 (側邊欄) ---
 # API Key 只需要輸入一次，兩個功能都能用
 with st.sidebar:
     st.header("🔑 權限設定")
-    api_key = st.text_input("請輸入 Gemini API Key", type="password")
+    
+    # 檢查是否已在系統後台設定了鑰匙 (Secrets)
+    if "GEMINI_API_KEY" in st.secrets:
+        api_key = st.secrets["GEMINI_API_KEY"]
+        st.success("✅ 已啟用自動授權模式")
+        st.info("目前使用開發者的額度，請愛惜使用。")
+    else:
+        # 如果後台沒設定，就讓使用者自己輸入
+        api_key = st.text_input("請輸入 Gemini API Key", type="password")
+        st.markdown("只要輸入一次，所有功能通用！")
     st.markdown("---")
     st.markdown("只要輸入一次，所有功能通用！")
 
